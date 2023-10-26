@@ -1,4 +1,5 @@
-package classes;
+package Jogo;
+import classes.Jogador;
 
 import java.util.Scanner;
 
@@ -7,8 +8,9 @@ public class Jogo  {
     //Ícone = inicial do nome dele (ok)
     //Para fazer os inimigos vamos precisar de herança -> extends etc
         Jogador jogador = new Jogador();
-       
-    public void menu(){
+        String mapa [][] = {{"[ ]","[ ]","[ ]","[ ]","[ ]","[ ]"},{"[ ]","[ ]","[ ]","[ ]","[ ]","[ ]"},{"[ ]","[ ]","[ ]","[ ]","[ ]","[ ]"},{"[ ]","[ ]","[ ]","[ ]","[ ]","[ ]"},{"[ ]","[ ]","[ ]","[ ]","[ ]","[ ]"},{"[ ]","[ ]","[ ]","[ ]","[ ]","[ ]"}};
+   
+     public void menu(){
         Scanner sca = new Scanner(System.in);
         Scanner sca1 = new Scanner(System.in);
         //limpaTela();
@@ -38,5 +40,40 @@ public class Jogo  {
         System.out.print("\033[H\033[2J");  
         System.out.flush();  
     }
-    
+    public  int Mapa(){
+        
+        for(int i = 0; i < mapa.length; i++){
+            for(int j = 0; j < mapa.length; j++){
+                System.out.print(mapa[i][j]);
+
+            }
+            System.out.println();
+        }
+       
+
+        
+        return 0;
+    }
+    public int andar(){
+                Scanner sca = new Scanner(System.in);
+
+
+                System.out.println("Digite sua coordenada para jogar");
+                int  colunaY = sca.nextInt();
+                int linhaX = sca.nextInt();
+
+
+                mapa[linhaX][colunaY] = "[X]";
+                
+                for(int i = 0; i < mapa.length; i++){
+                    for(int j = 0; j < mapa.length; j++){
+                System.out.print(mapa[i][j]);
+
+            }
+                 System.out.println();
+        }
+                andar();
+                return 0;
+                  
+    }
 }
