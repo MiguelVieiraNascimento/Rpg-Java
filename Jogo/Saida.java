@@ -5,7 +5,7 @@ public class Saida {
         Jogo joguinho = new Jogo();
 
         joguinho.menu();
-        joguinho.Mapa();
+        //joguinho.Mapa();
         joguinho.andar();
     }
 }

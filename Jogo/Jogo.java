@@ -1,5 +1,8 @@
 package Jogo;
+import classes.Assassino;
+import classes.Guerreiro;
 import classes.Jogador;
+import classes.Mago;
 
 import java.util.Scanner;
 
@@ -8,6 +11,10 @@ public class Jogo  {
     //Ícone = inicial do nome dele (ok)
     //Para fazer os inimigos vamos precisar de herança -> extends etc
         Jogador jogador = new Jogador();
+        Guerreiro guerreiro = new Guerreiro();
+        Mago mago = new Mago();
+        Assassino assassino = new Assassino();
+
         String mapa [][] = {
         {"[ ]","[ ]","[ ]","[ ]","[ ]","[ ]"},
         {"[ ]","[ ]","[ ]","[ ]","[ ]","[ ]"},
@@ -17,6 +24,7 @@ public class Jogo  {
         {"[ ]","[ ]","[ ]","[ ]","[ ]","[ ]"}};
    
      public void menu(){
+        limpaTela();
         Scanner sca = new Scanner(System.in);
         Scanner sca1 = new Scanner(System.in);
         //limpaTela();
@@ -26,6 +34,8 @@ public class Jogo  {
 
         this.jogador.nome = sca.nextLine();
         char icone = this.jogador.nome.charAt(0);
+        //String s = String.valueOf(icone);
+
         limpaTela();
 
         System.out.println("Ótimo, " + this.jogador.nome + ". Precisamos de mais algumas coisas.");
@@ -36,17 +46,42 @@ public class Jogo  {
         System.out.println("2 - Mago");
         System.out.println("3 - Assassino");
         System.out.println("------------------------------------------------------------------");
-        //this.jogador.escolha = sca1.nextInt();
 
-    
-        
+        this.jogador.escolha = sca1.nextInt();
+
+        if(this.jogador.escolha == 1){
+            System.out.println("Status:");
+           this.guerreiro.status();
+           this.jogador.vida = this.guerreiro.vida;
+           this.jogador.dano = this.guerreiro.dano;
+           this.jogador.defesa = this.guerreiro.defesa;
+
+           System.out.println("Vamos começar o jogo!");
+
+        } if(this.jogador.escolha == 2){
+            System.out.println("Status: ");
+            this.mago.status();
+            this.jogador.vida = this.mago.vida;
+            this.jogador.dano = this.mago.dano;
+            this.jogador.defesa = this.mago.defesa;
+
+            System.out.println("Vamos começar o jogo!");
+
+        } if(this.jogador.escolha == 3){
+            System.out.println("Status:");
+            this.assassino.status();
+            this.jogador.vida = this.assassino.vida;
+            this.jogador.dano = this.assassino.dano;
+            this.jogador.defesa = this.assassino.defesa;
+
+            System.out.println("Vamos começar o jogo!");
+  
+        } 
+
+            andar();
     }
 
-    public void limpaTela(){
-        System.out.print("\033[H\033[2J");  
-        System.out.flush();  
-    }
-    public  int Mapa(){
+    public int Mapa(){
         
         for(int i = 0; i < mapa.length; i++){
             for(int j = 0; j < mapa.length; j++){
@@ -55,21 +90,18 @@ public class Jogo  {
             }
             System.out.println();
         }
-       
-
         
         return 0;
     }
     public int andar(){
                 Scanner sca = new Scanner(System.in);
 
-
-                System.out.println("Digite sua coordenada para jogar");
+                System.out.println("Digite sua coordenada para jogar:");
                 int  colunaY = sca.nextInt();
                 int linhaX = sca.nextInt();
 
 
-                mapa[linhaX][colunaY] = "[X]";
+                mapa[linhaX][colunaY] = "[x]";
                 
                 for(int i = 0; i < mapa.length; i++){
                     for(int j = 0; j < mapa.length; j++){
@@ -81,5 +113,11 @@ public class Jogo  {
                 andar();
                 return 0;
                   
+    }
+
+
+    public void limpaTela(){
+        System.out.print("\033[H\033[2J");  
+        System.out.flush();  
     }
 }
