@@ -6,6 +6,6 @@ public class Saida {
 
         joguinho.menu();
         //joguinho.Mapa();
-        joguinho.andar();
+        //joguinho.andar();
     }
 }

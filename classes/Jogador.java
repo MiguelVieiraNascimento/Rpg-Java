@@ -7,11 +7,13 @@ public class Jogador{
     //Pedir para o jogador informar o nome completo no inicio do jogo (ok). O jogador vai ser representado no mapa pela inicial
     //do nome dele em maiúsculo, a primeira letra e armazena no jogador (ok)
     public String nome;
-    public char icone;
+    public String icone; //tem q ser uma string
     public int escolha;
     public int vida; //coloquei um valor aleatorio para cada para poder montar o "menu"
     public int defesa;
     public int dano;
+    public int posicaoX;
+    public int posicaoY;
 
     public void status(){
         System.out.println("Vidas: " + vida);
