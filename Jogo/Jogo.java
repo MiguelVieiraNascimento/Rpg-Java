@@ -1,4 +1,4 @@
-package Jogo;
+package jogo;
 import classes.Assassino;
 import classes.Guerreiro;
 import classes.Jogador;
@@ -140,19 +140,23 @@ public class Jogo  {
 
             if(tecla.equals("A")){
             //diminui 1 da posição do jogador na linha X
-                this.jogador.posicaoX = this.jogador.posicaoX -1;
+                mapa[this.jogador.posicaoX][this.jogador.posicaoY] =  "[ ]";    
+            mapa[this.jogador.posicaoX ][this.jogador.posicaoY-1] =  "[" + this.jogador.icone + "]";
             }
             if(tecla.equals("W")){
             //aumenta 1 da posição do jogador na coluna Y
-                this.jogador.posicaoY = this.jogador.posicaoY + 1;
+            mapa[jogador.posicaoX][jogador.posicaoY] =  "[ ]";    
+            mapa[jogador.posicaoX -1][jogador.posicaoY] =  "[" + this.jogador.icone + "]";
             }
             if(tecla.equals("D")){
             //aumenta 1 da posição do jogador na linha X
-                this.jogador.posicaoX = this.jogador.posicaoX + 1;
+                mapa[jogador.posicaoX][jogador.posicaoY] =  "[ ]";    
+            mapa[jogador.posicaoX +1][jogador.posicaoY -1] =  "[" + this.jogador.icone + "]";
             }
             if(tecla.equals("S")){
             //diminui 1 da posição do jogador na coluna Y
-                this.jogador.posicaoY = this.jogador.posicaoY - 1;
+              mapa[jogador.posicaoX][jogador.posicaoY] =  "[ ]";    
+            mapa[jogador.posicaoX +1][jogador.posicaoY] =  "[" + this.jogador.icone + "]";
             }
 
             for(int i = 0; i < mapa.length; i++){
