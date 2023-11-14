@@ -1,4 +1,4 @@
-package jogo;
+package Jogo;
 import classes.Assassino;
 import classes.Guerreiro;
 import classes.Jogador;
@@ -215,7 +215,7 @@ public class Jogo  {
         System.out.print("\033[H\033[2J");  
         System.out.flush();  
     }
-    public int inimigof(){
+    public void inimigof(){
         
         int randomNum = (int)(Math.random() * 41);  // 0 to 100
         
@@ -251,10 +251,10 @@ public class Jogo  {
             this.jogador.posicaoX = this.jogador.posicaoX + 1;
             this.jogador.posicaoY = this.jogador.posicaoY;
             mapa[jogador.posicaoX ][jogador.posicaoY] =  "[" + this.jogador.icone + "]";
-            
+            }
 
        
-        return 0;
+       
     }
 }
-}
+

@@ -6,6 +6,8 @@ public class Inimigo {
     //bruxa, elfo negro, orc
     public int vida;
     public int dano;
-    
+    public int posicaoX;
+    public int posicaoY;
+
     
 }

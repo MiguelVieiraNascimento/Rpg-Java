@@ -1,4 +1,4 @@
-package jogo;
+package Jogo;
 
 public class Saida {
     public static void main(String[] args){
