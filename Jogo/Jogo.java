@@ -79,10 +79,10 @@ public class Jogo  {
   
         } 
 
-            mapa();
+            mapainicial();
     }
 
-    public int mapa(){
+    public int mapainicial(){
 
         Scanner sca = new Scanner(System.in);
 
@@ -109,7 +109,11 @@ public class Jogo  {
             System.out.println("D- para ir para a esquerda;");
             System.out.println("S- para ir para baixo.");
 
-            andar();
+           
+             
+          
+  
+             
         
         return 0;
     }
@@ -136,41 +140,65 @@ public class Jogo  {
             // System.out.println("D- para ir para a esquerda;");
             // System.out.println("S- para ir para baixo.");
 
+            
+
             String tecla = sca2.nextLine();
 
-            if(tecla.equals("A")){
+            if(tecla.toUpperCase().equals("A")){
             //diminui 1 da posição do jogador na linha X
-                mapa[this.jogador.posicaoX][this.jogador.posicaoY] =  "[ ]";    
-            mapa[this.jogador.posicaoX ][this.jogador.posicaoY-1] =  "[" + this.jogador.icone + "]";
+            mapa[this.jogador.posicaoX][this.jogador.posicaoY] = "[ ]";
+            this.jogador.posicaoY = this.jogador.posicaoY-1;
+            this.jogador.posicaoX = this.jogador.posicaoX;
+            mapa[this.jogador.posicaoX ][this.jogador.posicaoY] =  "[" + this.jogador.icone + "]";
+           
+
             }
-            if(tecla.equals("W")){
+            if(tecla.toUpperCase().equals("W")){
             //aumenta 1 da posição do jogador na coluna Y
-            mapa[jogador.posicaoX][jogador.posicaoY] =  "[ ]";    
-            mapa[jogador.posicaoX -1][jogador.posicaoY] =  "[" + this.jogador.icone + "]";
+            mapa[this.jogador.posicaoX][this.jogador.posicaoY] = "[ ]";
+            this.jogador.posicaoX = this.jogador.posicaoX -1;
+            this.jogador.posicaoY = this.jogador.posicaoY;
+            mapa[this.jogador.posicaoX][this.jogador.posicaoY] =  "[" + this.jogador.icone + "]";
+             
+
             }
-            if(tecla.equals("D")){
+            if(tecla.toUpperCase().equals("D")){
             //aumenta 1 da posição do jogador na linha X
-                mapa[jogador.posicaoX][jogador.posicaoY] =  "[ ]";    
-            mapa[jogador.posicaoX +1][jogador.posicaoY -1] =  "[" + this.jogador.icone + "]";
+            mapa[this.jogador.posicaoX][this.jogador.posicaoY] = "[ ]";
+            this.jogador.posicaoX = this.jogador.posicaoX;
+            this.jogador.posicaoY = this.jogador.posicaoY + 1;  
+            mapa[jogador.posicaoX ][jogador.posicaoY ] =  "[" + this.jogador.icone + "]";
+             
             }
-            if(tecla.equals("S")){
+            if(tecla.toUpperCase().equals("S")){
             //diminui 1 da posição do jogador na coluna Y
-              mapa[jogador.posicaoX][jogador.posicaoY] =  "[ ]";    
-            mapa[jogador.posicaoX +1][jogador.posicaoY] =  "[" + this.jogador.icone + "]";
+            mapa[this.jogador.posicaoX][this.jogador.posicaoY] = "[ ]";
+            this.jogador.posicaoX = this.jogador.posicaoX + 1;
+            this.jogador.posicaoY = this.jogador.posicaoY;
+            mapa[jogador.posicaoX ][jogador.posicaoY] =  "[" + this.jogador.icone + "]";
+            
+
             }
+            
 
-            for(int i = 0; i < mapa.length; i++){
-                    for(int j = 0; j < mapa.length; j++){
-                System.out.print(mapa[i][j]);
-            }
-                 System.out.println();
-        }
-
-
-                andar();
+            mostrarMapa();
+            andar();
                 return 0;
                   
+    
+}
+    public String mostrarMapa(){
+         for(int i = 0; i < this.mapa.length; i++){
+            for(int j = 0; j < this.mapa.length; j++){
+                System.out.print(this.mapa[i][j]);
+
+            }
+            System.out.println();
+        }
+        return "";
     }
+
+   
 
     public int batalha(){
         int luta = this.jogador.vida - this.inimigo.dano;
@@ -187,4 +215,46 @@ public class Jogo  {
         System.out.print("\033[H\033[2J");  
         System.out.flush();  
     }
+    public int inimigof(){
+        
+        int randomNum = (int)(Math.random() * 41);  // 0 to 100
+        
+        if(randomNum > 0 && randomNum < 10){
+            //diminui 1 da posição do jogador na linha X
+            mapa[this.jogador.posicaoX][this.jogador.posicaoY] = "[ ]";
+            this.jogador.posicaoY = this.jogador.posicaoY-1;
+            this.jogador.posicaoX = this.jogador.posicaoX;
+            mapa[this.jogador.posicaoX ][this.jogador.posicaoY] =  "[" + this.jogador.icone + "]";
+           
+
+            }
+            if(randomNum > 10 && randomNum < 20){
+            //aumenta 1 da posição do jogador na coluna Y
+            mapa[this.jogador.posicaoX][this.jogador.posicaoY] = "[ ]";
+            this.jogador.posicaoX = this.jogador.posicaoX -1;
+            this.jogador.posicaoY = this.jogador.posicaoY;
+            mapa[this.jogador.posicaoX][this.jogador.posicaoY] =  "[" + this.jogador.icone + "]";
+             
+
+            }
+            if(randomNum > 20 && randomNum < 30){
+            //aumenta 1 da posição do jogador na linha X
+            mapa[this.jogador.posicaoX][this.jogador.posicaoY] = "[ ]";
+            this.jogador.posicaoX = this.jogador.posicaoX;
+            this.jogador.posicaoY = this.jogador.posicaoY + 1;  
+            mapa[jogador.posicaoX ][jogador.posicaoY ] =  "[" + this.jogador.icone + "]";
+             
+            }
+            if(randomNum > 30 && randomNum < 40){
+            //diminui 1 da posição do jogador na coluna Y
+            mapa[this.jogador.posicaoX][this.jogador.posicaoY] = "[ ]";
+            this.jogador.posicaoX = this.jogador.posicaoX + 1;
+            this.jogador.posicaoY = this.jogador.posicaoY;
+            mapa[jogador.posicaoX ][jogador.posicaoY] =  "[" + this.jogador.icone + "]";
+            
+
+       
+        return 0;
+    }
+}
 }
