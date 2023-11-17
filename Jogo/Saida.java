@@ -5,6 +5,6 @@ public class Saida {
         Jogo joguinho = new Jogo();
 
         joguinho.menu();
-        joguinho.andar();
+       // joguinho.andar();
     }
 }
