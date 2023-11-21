@@ -1,10 +1,12 @@
 package Jogo;
+import classes.Jogador;
 
-public class Saida {
+public class saida {
     public static void main(String[] args){
-        Jogo joguinho = new Jogo();
+         Jogador jogador = new Jogador();
+        // jogo joguinho = new jogo();
 
-        joguinho.menu();
+        //joguinho.menu();
        // joguinho.andar();
     }
 }

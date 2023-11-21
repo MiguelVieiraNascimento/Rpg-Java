@@ -2,9 +2,11 @@ package classes;
 
 import java.util.Scanner;
 
-import Jogo.Jogo;
+import Jogo.jogo;
 
-public class Jogador extends Jogo{
+
+
+public class Jogador{
     //Criar atributos do jogador: nome (ok)
     //vida, icone, dano, defesa, nivel de experiência e as coordenadas dele no mapa
     //Pedir para o jogador informar o nome completo no inicio do jogo (ok). O jogador vai ser representado no mapa pela inicial
@@ -18,6 +20,7 @@ public class Jogador extends Jogo{
     public int posicaoX;
     public int posicaoY;
     public int passos;
+    jogo jogo = new jogo();
     
     String mapa [][] = {
         {"[ ]","[ ]","[ ]","[ ]","[ ]","[ ]"},
@@ -35,11 +38,11 @@ public class Jogador extends Jogo{
 
     }
     public int andar(){
-                Scanner sca2 = new Scanner(System.in);
+            Scanner sca2 = new Scanner(System.in);
        
             String tecla = sca2.nextLine();
 
-            if(tecla.toUpperCase().equals("A")){
+             if(tecla.toUpperCase().equals("A")){
             //diminui 1 da posição do jogador na linha X
             mapa[this.posicaoX][this.posicaoY] = "[ ]";
             this.posicaoY = this.posicaoY-1;
@@ -76,13 +79,16 @@ public class Jogador extends Jogo{
             }
             
 
-            mostrarMapa();
-            Escolha();
+            jogo.mostrarMapa();
+            jogo.Escolha();
             //vamos precisar tirar o andar() para o loop
             
-                return 0;
+                
                   
+ 
+        return 0;
+    }
     
-}
+    
 
 }

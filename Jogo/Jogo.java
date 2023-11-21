@@ -6,11 +6,11 @@ import classes.Mago;
 import inimigo.Bruxa;
 import inimigo.ElfoNegro;
 import inimigo.Inimigo;
-import inimigo.Orc;
+import inimigo.orc;
 
 import java.util.Scanner;
 
-public class Jogo  {
+public class jogo  {
     //Fazer o jogador colocar o nome dele completo (ok) e transformar isso em um ícone para representar ele na arena (ok)
     //Ícone = inicial do nome dele (ok)
     //Para fazer os inimigos vamos precisar de herança -> extends etc (ok)
@@ -30,13 +30,13 @@ public class Jogo  {
    
      public void menu(){
         limpaTela();
-        Scanner sca = new Scanner(System.in);
+    
         Scanner sca1 = new Scanner(System.in);
          
         System.out.println("Bem-vindo(a)!");
         System.out.println("Está preparado(a) para uma experiência nova? Antes de tudo... informe seu nome completo:");
 
-        this.jogador.nome = sca.nextLine();
+        this.jogador.nome = sca1.nextLine();
         this.jogador.icone = String.valueOf(this.jogador.nome.charAt(0));
 
 
@@ -133,11 +133,11 @@ public class Jogo  {
         return "";
     }
 
-    public int loop(){
- 
+    public int aparecerinimigos(){
+        Jogador jogador = new Jogador();
         Bruxa inimigo1 = new Bruxa();
         inimigo1.nome = "Bruxa";
-        Orc inimigo2 = new Orc();
+        orc inimigo2 = new orc();
         inimigo2.nome = "Orc";
         ElfoNegro inimigo3 = new ElfoNegro();
         inimigo3.nome = "ElfoNegro";
@@ -148,27 +148,34 @@ public class Jogo  {
         inimigo3.icone = String.valueOf(inimigo3.nome.charAt(0));
 
         int numDeInimigo = 0;
-
-        
-        //para quando ele der 3 passos aparecer um inimigo 
-        for(int i = 0; i < 10; i++){
-
-
-
-            if(this.jogador.passos == 3){
-                //cria um inimigo a cada 3 passos
-
-                //zerar os passos do jogador
-                this.jogador.passos = 0;
+        int contador = 1;
+        int randomNum = (int)(Math.random() *3);
+        if(this.jogador.passos == 3 * contador ){
+            if(randomNum == 1){
                 
             }
+            // aparecer icone no mapa
+            
+            contador++;
+
         }
-        return 0;
+        
+        //para quando ele der 3 passos aparecer um inimigo 
+      return 0;
+      
     }
+
    
 
     public int batalha(){
-        //int luta = this.jogador.vida - this.inimigo.dano;
+     this.inimigo.vida = this.jogador.vida - this.inimigo.dano;
+
+     if(this.inimigo.vida == 0){
+        // inimigo morreu
+     }
+     if(this.inimigo.vida > 0){
+        // o inimigo continua vivo
+     }
 
     
 
@@ -183,7 +190,7 @@ public class Jogo  {
         System.out.flush();  
     }
 
-    public String Escolha(){
+     public String Escolha(){
         
         Scanner sca = new Scanner(System.in);
         System.out.println("1 - Continuar andando ");
@@ -206,6 +213,11 @@ public class Jogo  {
         //}
         return "";
     }
-    
+    public String Inventario(){
+        
+        
+        
+        return "";
+    }
 }
 
